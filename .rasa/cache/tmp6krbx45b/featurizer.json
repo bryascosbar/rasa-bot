@@ -1,0 +1,56 @@
+{
+  "type": "MaxHistoryTrackerFeaturizer",
+  "state_featurizer": {
+    "action_texts": [],
+    "entity_tag_specs": [],
+    "feature_states": {
+      "intent": {
+        "agradecer": 0,
+        "back": 1,
+        "despedirse": 2,
+        "informar_nombre": 3,
+        "nlu_fallback": 4,
+        "out_of_scope": 5,
+        "pedir_ayuda": 6,
+        "pedir_informacion": 7,
+        "preguntar_estado": 8,
+        "responder_bien": 9,
+        "responder_mal": 10,
+        "restart": 11,
+        "saludar": 12,
+        "session_start": 13
+      },
+      "action_name": {
+        "action_listen": 0,
+        "action_restart": 1,
+        "action_session_start": 2,
+        "action_default_fallback": 3,
+        "action_deactivate_loop": 4,
+        "action_revert_fallback_events": 5,
+        "action_default_ask_affirmation": 6,
+        "action_default_ask_rephrase": 7,
+        "action_two_stage_fallback": 8,
+        "action_unlikely_intent": 9,
+        "action_back": 10,
+        "...": 11,
+        "action_extract_slots": 12,
+        "utter_agradecimiento": 13,
+        "utter_ayuda": 14,
+        "utter_despedida": 15,
+        "utter_informacion": 16,
+        "utter_pedir_nombre": 17,
+        "utter_preguntar_estado": 18,
+        "utter_responder_bien": 19,
+        "utter_saludo": 20,
+        "utter_saludo_personalizado": 21
+      },
+      "entities": {
+        "nombre": 0
+      },
+      "slots": {},
+      "active_loop": {}
+    }
+  },
+  "remove_duplicates": true,
+  "max_history": null
+}

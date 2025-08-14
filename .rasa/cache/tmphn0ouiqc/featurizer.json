@@ -1,0 +1,64 @@
+{
+  "type": "MaxHistoryTrackerFeaturizer",
+  "state_featurizer": {
+    "action_texts": [],
+    "entity_tag_specs": [],
+    "feature_states": {
+      "intent": {
+        "agendar_cita": 0,
+        "agradecer": 1,
+        "back": 2,
+        "contacto": 3,
+        "descuentos": 4,
+        "despedirse": 5,
+        "foto_multas": 6,
+        "multas": 7,
+        "nlu_fallback": 8,
+        "out_of_scope": 9,
+        "pedir_informacion": 10,
+        "preguntar_horarios": 11,
+        "requisitos_curso": 12,
+        "restart": 13,
+        "saludar": 14,
+        "session_start": 15,
+        "ubicacion": 16
+      },
+      "action_name": {
+        "action_listen": 0,
+        "action_restart": 1,
+        "action_session_start": 2,
+        "action_default_fallback": 3,
+        "action_deactivate_loop": 4,
+        "action_revert_fallback_events": 5,
+        "action_default_ask_affirmation": 6,
+        "action_default_ask_rephrase": 7,
+        "action_two_stage_fallback": 8,
+        "action_unlikely_intent": 9,
+        "action_back": 10,
+        "...": 11,
+        "action_extract_slots": 12,
+        "utter_agendar_cita": 13,
+        "utter_agradecimiento": 14,
+        "utter_contacto": 15,
+        "utter_descuentos": 16,
+        "utter_despedida": 17,
+        "utter_foto_multas": 18,
+        "utter_informacion": 19,
+        "utter_multas": 20,
+        "utter_preguntar_horarios": 21,
+        "utter_requisitos_curso": 22,
+        "utter_saludo": 23,
+        "utter_ubicacion": 24
+      },
+      "entities": {
+        "tipo_servicio": 0
+      },
+      "slots": {
+        "tipo_servicio_0": 0
+      },
+      "active_loop": {}
+    }
+  },
+  "remove_duplicates": true,
+  "max_history": null
+}

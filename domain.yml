@@ -1,0 +1,74 @@
+intents:
+  - saludar
+  - despedirse
+  - pedir_informacion
+  - agradecer
+  - preguntar_horarios
+  - agendar_cita
+  - multas
+  - multas_especificas
+  - foto_multas
+  - requisitos_curso
+  - descuentos
+  - ubicacion
+  - contacto
+  - proporcionar_cedula
+
+entities:
+  - cedula
+
+slots:
+  cedula:
+    type: text
+    mappings:
+      - type: from_text
+
+responses:
+  utter_saludo:
+    - text: "¡Hola! 👋 Soy Ana, tu asistente virtual del CIA González. Te ayudo con información sobre comparendos, cursos y otros servicios. ¿Qué necesitas hoy? 🤔"
+
+  utter_despedida:
+    - text: "¡Hasta pronto! 👋 Recuerda que siempre puedes volver para resolver tus dudas. 😊"
+
+  utter_informacion:
+    - text: "Ofrecemos cursos viales 🚦, asesorías jurídicas en tránsito ⚖️, gestión de descuentos por comparendos 💸 y más. ¿Sobre qué servicio quieres información? 🤓"
+
+  utter_agradecimiento:
+    - text: "¡Con mucho gusto! 😊 Estoy aquí para ayudarte siempre 🙌."
+
+  utter_preguntar_horarios:
+    - text: "Nuestro horario de atención es de lunes a sábado de 8:00 a.m. a 5:00 p.m. ⏰ (jornada continua). No atendemos domingos ni festivos ❌."
+
+  utter_agendar_cita:
+    - text: "Para agendar tu curso vial, completa el formulario aquí: https://ciagonzalez.com/agenda-curso-vial/ 📝. Recuerda tener tu documento de identidad 🆔 y estar registrado en el RUNT."
+
+  utter_multas:
+    - text: "Si recibiste un comparendo físico 📝, puedes obtener hasta un 50% de descuento 💰 si tomas el curso dentro de los primeros 5 días hábiles. Agenda aquí: https://ciagonzalez.com/agenda-curso-vial/"
+
+  utter_foto_multas:
+    - text: "Si es una fotomulta 📸, el descuento del 50% 💸 aplica si realizas el curso dentro de los primeros 11 días hábiles después de la notificación. Agenda aquí: https://ciagonzalez.com/agenda-curso-vial/"
+
+  utter_requisitos_curso:
+    - text: "Para realizar el curso vial necesitas: \n1️⃣ Documento de identidad original 🆔\n2️⃣ Estar registrado en el RUNT 📋\n3️⃣ Que el comparendo esté a tu nombre ✍️\n4️⃣ Presentarte 30 min antes de la hora asignada ⏳"
+
+  utter_descuentos:
+    - text: "📌 Descuentos por curso vial:\n- Comparendo físico 📝: 50% hasta el día 5 hábil, 25% hasta el día 20.\n- Fotomulta 📸: 50% hasta el día 11 hábil, 25% hasta el día 26.\nEn ambos casos, debes realizar el curso en nuestras instalaciones 🏫."
+
+  utter_ubicacion:
+    - text: "Estamos ubicados en Buga, Valle del Cauca, Carrera 11 # 4-47 📍. Ver en Google Maps: https://maps.app.goo.gl/JzUAcUJeEdvWzzh17"
+
+  utter_contacto:
+    - text: "📞 Teléfono: (602) 237 1248 \n📱 WhatsApp: +57 317 123 4567 \n✉️ Correo: contacto@ciagonzalez.com"
+
+  utter_asignar_asesor:
+    - text: "Esa consulta requiere revisión personalizada. 📞 Te comunico con un asesor que te dará la respuesta exacta sobre tu caso."
+
+  utter_pedir_cedula_multas:
+    - text: "Por favor, ingresa tu número de cédula 🆔 para consultar tus multas."
+
+actions:
+  - action_consultar_multas
+
+session_config:
+  session_expiration_time: 60
+  carry_over_slots_to_new_session: true

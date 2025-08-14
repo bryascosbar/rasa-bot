@@ -1,0 +1,60 @@
+stories:
+- story: Saludo inicial
+  steps:
+    - intent: saludar
+    - action: utter_saludo
+
+- story: Despedida
+  steps:
+    - intent: despedirse
+    - action: utter_despedida
+
+- story: Información general
+  steps:
+    - intent: pedir_informacion
+    - action: utter_informacion
+
+- story: Agradecimiento
+  steps:
+    - intent: agradecer
+    - action: utter_agradecimiento
+
+- story: Consultar horarios
+  steps:
+    - intent: preguntar_horarios
+    - action: utter_preguntar_horarios
+
+- story: Agendar cita directa
+  steps:
+    - intent: agendar_cita
+    - action: utter_agendar_cita
+
+- story: Consultar multas específicas
+  steps:
+    - intent: multas_especificas
+    - action: utter_pedir_cedula_multas
+
+- story: Consultar fotomultas
+  steps:
+    - intent: foto_multas
+    - action: utter_foto_multas
+
+- story: Requisitos curso
+  steps:
+    - intent: requisitos_curso
+    - action: utter_requisitos_curso
+
+- story: Información de descuentos
+  steps:
+    - intent: descuentos
+    - action: utter_descuentos
+
+- story: Ubicación
+  steps:
+    - intent: ubicacion
+    - action: utter_ubicacion
+
+- story: Información de contacto
+  steps:
+    - intent: contacto
+    - action: utter_contacto

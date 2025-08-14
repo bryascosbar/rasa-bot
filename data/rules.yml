@@ -1,0 +1,47 @@
+version: "3.1"
+
+rules:
+
+- rule: Saludar
+  steps:
+    - intent: saludar
+    - action: utter_saludo
+
+- rule: Despedirse
+  steps:
+    - intent: despedirse
+    - action: utter_despedida
+
+- rule: Dar información general
+  steps:
+    - intent: pedir_informacion
+    - action: utter_informacion
+
+- rule: Responder agradecimiento
+  steps:
+    - intent: agradecer
+    - action: utter_agradecimiento
+
+- rule: Responder horarios
+  steps:
+    - intent: preguntar_horarios
+    - action: utter_preguntar_horarios
+
+- rule: Responder agendar cita
+  steps:
+    - intent: agendar_cita
+    - action: utter_agendar_cita
+
+- rule: Responder multas generales
+  steps:
+    - intent: multas
+    - action: utter_multas
+
+- rule: Consultar multas específicas
+  steps:
+    - intent: multas_especificas
+    - action: utter_pedir_cedula_multas
+
+- rule: Responder fotomultas
+  steps:
+    - intent: foto_multa_

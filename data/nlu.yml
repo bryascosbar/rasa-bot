@@ -1,0 +1,133 @@
+version: "3.1"
+
+nlu:
+
+## Saludo
+- intent: saludar
+  examples: |
+    - Hola
+    - Buen día
+    - Buenas tardes
+    - Buenas noches
+    - Hola, ¿cómo estás?
+    - ¿Qué tal?
+    - Hey
+    - Hola Ana
+
+## Despedida
+- intent: despedirse
+  examples: |
+    - Adiós
+    - Chao
+    - Hasta luego
+    - Nos vemos
+    - Que estés bien
+    - Hasta pronto
+    - Me despido
+
+## Pedir información general
+- intent: pedir_informacion
+  examples: |
+    - Quiero información sobre sus servicios
+    - ¿Qué servicios tienen?
+    - Me puedes decir qué hacen
+    - Cuéntame qué puedo hacer aquí
+    - ¿En qué me pueden ayudar?
+    - ¿Qué ofrece el CIA González?
+
+## Agradecer
+- intent: agradecer
+  examples: |
+    - Gracias
+    - Muchas gracias
+    - Te agradezco mucho
+    - Mil gracias
+    - Gracias por tu ayuda
+    - Te lo agradezco
+
+## Preguntar horarios
+- intent: preguntar_horarios
+  examples: |
+    - ¿Cuáles son sus horarios?
+    - ¿A qué hora abren?
+    - ¿A qué hora cierran?
+    - ¿Trabajan los sábados?
+    - ¿Atienden domingos?
+    - ¿Qué horario de atención tienen?
+    - ¿Están abiertos hoy?
+
+## Agendar cita
+- intent: agendar_cita
+  examples: |
+    - Quiero agendar una cita
+    - Necesito programar un curso
+    - ¿Cómo saco una cita?
+    - Reservar curso
+    - Agendar curso vial
+    - Programar cita para comparendo
+    - Quiero inscribirme al curso
+
+## Multas específicas (acción para cédula)
+- intent: multas_especificas
+  examples: |
+    - Tengo una multa por SOAT y tecnicomecánica
+    - Me multaron por alcoholemia
+    - Comparendo por exceso de velocidad
+    - Parte por no portar licencia
+    - Multa por invadir carril
+    - Comparendo por estacionar en lugar prohibido
+    - Me sancionaron por no respetar semáforo
+
+## Foto multas
+- intent: foto_multas
+  examples: |
+    - Me llegó una fotomulta
+    - Recibí una fotodetección
+    - Me multaron por cámara
+    - Fotomulta
+    - Tengo un comparendo por fotodetección
+    - Multa por cámara
+    - Ayuda con una fotomulta
+
+## Requisitos curso
+- intent: requisitos_curso
+  examples: |
+    - ¿Qué necesito para el curso?
+    - Requisitos para curso vial
+    - Documentos para inscribirme
+    - ¿Qué papeles debo llevar?
+    - ¿Qué debo presentar para el curso?
+    - Necesito saber requisitos
+    - ¿Qué debo llevar al curso vial?
+
+## Descuentos
+- intent: descuentos
+  examples: |
+    - ¿Qué descuentos tienen?
+    - ¿Cómo obtengo el 50%?
+    - Quiero saber sobre rebajas
+    - Descuento en comparendo
+    - ¿Si hago el curso me rebajan la multa?
+    - ¿Cuánto me descuentan?
+    - ¿Cuándo aplica el descuento?
+
+## Ubicación
+- intent: ubicacion
+  examples: |
+    - ¿Dónde están ubicados?
+    - Dirección del CIA González
+    - ¿Dónde queda?
+    - Ubicación de la oficina
+    - ¿Cuál es la dirección?
+    - ¿Dónde están?
+
+## Contacto
+- intent: contacto
+  examples: |
+    - Necesito el teléfono
+    - ¿Cuál es su número?
+    - Dame el WhatsApp
+    - ¿Tienen correo electrónico?
+    - ¿Cómo los contacto?
+    - ¿Me das un número para llamar?
+    - Dame el número de contacto

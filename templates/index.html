@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>Chatbot Cia González</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap');
+
+    * { box-sizing: border-box; }
+    html, body { height: 100%; margin: 0; background-color: #f5f9fc; font-family: 'Roboto', sans-serif; color: #222; }
+    body { display: flex; justify-content: center; align-items: center; padding: 20px; min-height: 100vh; }
+
+    .container {
+      width: 420px;
+      height: 600px;
+      background-color: #fff;
+      border-radius: 16px;
+      box-shadow: 0 10px 30px rgba(0,91,150,0.15);
+      display: flex;
+      flex-direction: column;
+      padding: 30px 30px 20px;
+      gap: 20px;
+    }
+
+    h1 {
+      font-size: 2rem;
+      color: #005b96;
+      margin: 0;
+      text-align: center;
+      font-weight: 700;
+      letter-spacing: 1.2px;
+      user-select: none;
+      flex-shrink: 0;
+    }
+
+    #chatbox {
+      flex-grow: 1;
+      background-color: #f7faff;
+      border-radius: 12px;
+      padding: 20px;
+      overflow-y: auto;
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+      box-shadow: inset 0 0 15px #cce6ff;
+      border: 1px solid #b3d4ff;
+      font-size: 1rem;
+      color: #222;
+      white-space: pre-wrap;
+    }
+
+    .message {
+      max-width: 80%;
+      padding: 12px 18px;
+      border-radius: 20px;
+      line-height: 1.4;
+      word-wrap: break-word;
+      box-shadow: 0 3px 6px rgba(0,0,0,0.05);
+    }
+
+    .user {
+      background-color: #005b96;
+      color: white;
+      align-self: flex-end;
+      border-top-left-radius: 0;
+      box-shadow: 0 3px 8px rgba(0,91,150,0.5);
+    }
+
+    .bot {
+      background-color: #e6f1ff;
+      color: #000;
+      align-self: flex-start;
+      border-top-right-radius: 0;
+      box-shadow: 0 3px 8px rgba(0,61,102,0.25);
+    }
+
+    #input-area { display:flex; gap:15px; margin-top:5px; flex-shrink:0; align-items:center; }
+    #user-input {
+      flex-grow:1;
+      padding:14px 18px;
+      border:2px solid #005b96;
+      border-radius:30px;
+      font-size:1rem;
+      outline:none;
+      transition:all .3s ease;
+      color:#222;
+    }
+    #user-input::placeholder { color:#7a9ec9; font-style:italic; }
+    #user-input:focus { border-color:#003d66; box-shadow:0 0 10px rgba(0,61,102,0.6); }
+
+    button {
+      background-color:#005b96;
+      color:white;
+      border:none;
+      padding:14px 24px;
+      border-radius:30px;
+      cursor:pointer;
+      font-weight:600;
+      font-size:1rem;
+      transition:background-color .3s ease;
+      user-select:none;
+      min-width:90px;
+      box-shadow:0 4px 10px rgba(0,91,150,0.4);
+    }
+    button:hover { background-color:#003d66; box-shadow:0 6px 14px rgba(0,61,102,0.7); }
+
+    #chatbox::-webkit-scrollbar { width:8px; }
+    #chatbox::-webkit-scrollbar-track { background:#dcefff; border-radius:20px; }
+    #chatbox::-webkit-scrollbar-thumb { background-color:#005b96; border-radius:20px; border:2px solid #dcefff; }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Chatbot Cia González</h1>
+
+    <div id="chatbox" role="log" aria-live="polite" aria-relevant="additions"></div>
+
+    <div id="input-area">
+      <input
+        type="text"
+        id="user-input"
+        placeholder="Escribe un mensaje..."
+        onkeydown="if(event.key === 'Enter') sendMessage()"
+        autocomplete="off"
+      />
+      <button onclick="sendMessage()">Enviar</button>
+    </div>
+  </div>
+
+  <script>
+    function escapeHtml(unsafe) {
+      return unsafe
+        .replace(/&/g, "&amp;")
+        .replace(/</g, "&lt;")
+        .replace(/>/g, "&gt;")
+        .replace(/"/g, "&quot;")
+        .replace(/'/g, "&#039;");
+    }
+
+    function appendUserMessage(text) {
+      const chatbox = document.getElementById('chatbox');
+      const node = document.createElement('div');
+      node.classList.add('message', 'user');
+      node.textContent = text;
+      chatbox.appendChild(node);
+      chatbox.scrollTop = chatbox.scrollHeight;
+    }
+
+    function appendBotMessage(rawText) {
+      const chatbox = document.getElementById('chatbox');
+      const node = document.createElement('div');
+      node.classList.add('message', 'bot');
+      const safe = escapeHtml(rawText).replace(/\n/g, '<br>');
+      node.innerHTML = safe;
+      chatbox.appendChild(node);
+      chatbox.scrollTop = chatbox.scrollHeight;
+    }
+
+    function sendMessage() {
+      const inputEl = document.getElementById('user-input');
+      const text = inputEl.value.trim();
+      if (!text) return;
+      appendUserMessage(text);
+      inputEl.value = '';
+      inputEl.focus();
+
+      // Cambiado para Rasa REST webhook en ngrok
+      fetch('https://b245d40f5743.ngrok-free.app/webhooks/rest/webhook', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ message: text, sender: "user" })
+      })
+      .then(resp => resp.json())
+      .then(data => {
+        if (Array.isArray(data)) {
+          data.forEach(item => {
+            if (item.text) appendBotMessage(item.text);
+          });
+        } else {
+          appendBotMessage('Lo siento, no obtuve respuesta del servidor.');
+        }
+      })
+      .catch(err => {
+        console.error(err);
+        appendBotMessage('Error de conexión con el servidor.');
+      });
+    }
+  </script>
+</body>
+</html>

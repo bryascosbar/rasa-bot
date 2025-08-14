@@ -1,0 +1,15 @@
+language: "es"  # Establece el idioma de procesamiento del bot a español.
+
+pipeline:  # Define el pipeline de procesamiento de lenguaje natural (NLU).
+- name: "WhitespaceTokenizer"  # Este componente separa las palabras en tokens basándose en los espacios en blanco.
+- name: "CountVectorsFeaturizer"  # Convierte el texto en vectores numéricos (basados en la frecuencia de palabras) para poder ser procesado por el modelo.
+- name: "DIETClassifier"  # Un clasificador que detecta tanto intenciones como entidades en el texto de manera simultánea.
+- name: "EntitySynonymMapper"  # Mapea sinónimos de las entidades, para que, por ejemplo, "doctor" y "médico" se traten como la misma entidad.
+- name: "ResponseSelector"  # Componente que selecciona la respuesta más adecuada basándose en la intención que se ha reconocido.
+
+policies:  # Define las políticas de toma de decisiones del bot, cómo debe comportarse en la conversación.
+- name: "MemoizationPolicy"  # Esta política recuerda las conversaciones previas para repetir patrones exactos ya aprendidos.
+- name: "RulePolicy"  # Sigue reglas predefinidas para manejar ciertas partes de la conversación según las reglas definidas.
+- name: "TEDPolicy"  # Política avanzada que predice el siguiente paso de la conversación basándose en el contexto y patrones anteriores.
+
+assistant_id: 20241018-162024-andante-chili  # ID único que identifica al asistente o bot, útil para propósitos de control y administración.

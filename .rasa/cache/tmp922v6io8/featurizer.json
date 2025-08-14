@@ -1,0 +1,55 @@
+{
+  "type": "MaxHistoryTrackerFeaturizer",
+  "state_featurizer": {
+    "action_texts": [],
+    "entity_tag_specs": [],
+    "feature_states": {
+      "intent": {
+        "agendar_cita": 0,
+        "agradecer": 1,
+        "back": 2,
+        "despedirse": 3,
+        "foto_multas": 4,
+        "multas": 5,
+        "nlu_fallback": 6,
+        "out_of_scope": 7,
+        "pedir_informacion": 8,
+        "preguntar_horarios": 9,
+        "restart": 10,
+        "saludar": 11,
+        "session_start": 12
+      },
+      "action_name": {
+        "action_listen": 0,
+        "action_restart": 1,
+        "action_session_start": 2,
+        "action_default_fallback": 3,
+        "action_deactivate_loop": 4,
+        "action_revert_fallback_events": 5,
+        "action_default_ask_affirmation": 6,
+        "action_default_ask_rephrase": 7,
+        "action_two_stage_fallback": 8,
+        "action_unlikely_intent": 9,
+        "action_back": 10,
+        "...": 11,
+        "action_extract_slots": 12,
+        "utter_agendar_cita": 13,
+        "utter_agradecimiento": 14,
+        "utter_despedida": 15,
+        "utter_informacion": 16,
+        "utter_multas": 17,
+        "utter_preguntar_horarios": 18,
+        "utter_saludo": 19
+      },
+      "entities": {
+        "tipo_servicio": 0
+      },
+      "slots": {
+        "tipo_servicio_0": 0
+      },
+      "active_loop": {}
+    }
+  },
+  "remove_duplicates": true,
+  "max_history": null
+}
